@@ -1,0 +1,30 @@
+{
+  "name": "binksalad-finance",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "prestart": "npm run build",
+    "start": "node server/index.js",
+    "dev": "concurrently -k -n api,web \"npm:api:dev\" \"vite --host 127.0.0.1 --strictPort\"",
+    "api:dev": "node server/index.js --host 127.0.0.1 --port 4174",
+    "server": "node server/index.js",
+    "build": "vite build",
+    "external": "node scripts/serve-external.mjs",
+    "test": "node --test tests/api.test.js"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "better-sqlite3": "^13.2.0",
+    "express": "^5.3.0",
+    "lucide-react": "latest",
+    "multer": "^2.5.0",
+    "react": "latest",
+    "react-dom": "latest",
+    "recharts": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.7"
+  }
+}
